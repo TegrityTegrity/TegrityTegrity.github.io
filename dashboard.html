@@ -21,9 +21,40 @@
         <li>Acceptance fee $300 <span class="green-text"> PAID</li>
         <li>Lawyers fee $500 <span class="green-text"> PAID</li>
         <li>Service charge $300 <span class="green-text"> PAID</li>
-        <li>Debit CARD Shipping $2000 <span class="red-text"> UNPAID</li>
+        <li>Debit CARD Shipping $600 of $2000<span class="green-text"> PAID</li>
+        <li>Debit CARD Shipping $1400 of $2000 <span class="red-text"> PENDING</li>
       </ul>
     </div>
+    <div id="countdown">Countdown to September 18, 2023, 12:09</div>
+
+  <script>
+      // Set the target date for the countdown (September 19, 2023, 12:09)
+      var targetDate = new Date("2023-09-19T12:09:00").getTime();
+
+      // Update the countdown every second
+      var x = setInterval(function() {
+          // Get the current date and time
+          var currentDate = new Date().getTime();
+
+          // Calculate the time remaining
+          var timeRemaining = targetDate - currentDate;
+
+          // Calculate days, hours, minutes, and seconds
+          var days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+          var hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          var minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+          var seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+
+          // Display the countdown in the div with id "countdown"
+          document.getElementById("countdown").innerHTML = days + " days " + hours + ":" + minutes + ":" + seconds;
+
+          // If the countdown reaches zero, display a message
+          if (timeRemaining < 0) {
+              clearInterval(x); // Stop the timer
+              document.getElementById("countdown").innerHTML = "EXPIRED";
+          }
+      }, 1000); // Update every 1 second
+  </script>
     <div class="coin-chart">
       <h2>Tegrity Investment Performance</h2>
       <canvas id="btcInvestmentChart" width="300" height="300"></canvas> <!-- Set fixed dimensions -->
